@@ -1,0 +1,88 @@
+-- DML
+
+-- 1. INSERT
+-- Insert data into Members table
+INSERT INTO Members VALUES
+('ME001', 'Alice', 'Johnson', 'alice.johnson@example.com', 1234567890, '1990-05-15', '2023-01-10', 'MT001'),
+('ME002', 'Bob', 'Smith', 'bob.smith@example.com', 9876543210, '1985-03-20', '2023-02-01', 'MT002'),
+('ME003', 'Charlie', 'Brown', 'charlie.brown@example.com', 1231231234, '1992-07-11', '2023-03-05', 'MT001'),
+('ME004', 'Diana', 'Prince', 'diana.prince@example.com', 4564564567, '1995-09-23', '2023-01-25', 'MT003'),
+('ME005', 'Evan', 'Peters', 'evan.peters@example.com', 7897897890, '1988-11-30', '2023-04-12', 'MT002');
+
+-- Insert data into MembershipType table
+INSERT INTO MembershipType VALUES
+('MT001', 'Basic', 50, 'Access to gym facilities', 1),
+('MT002', 'Standard', 75, 'Access to gym + 1 class per week', 3),
+('MT003', 'Premium', 100, 'Unlimited access to all facilities and classes', 6),
+('MT004', 'VIP', 150, 'Priority access to facilities and personal trainer', 12);
+
+-- Insert data into Classes table
+INSERT INTO Classes VALUES
+('CL001', 'Yoga', 'ST001', 60, 'Fitness', '2024-01-15 10:00:00', 20),
+('CL002', 'Pilates', 'ST002', 45, 'Fitness', '2024-01-16 09:00:00', 15),
+('CL003', 'Zumba', 'ST003', 50, 'Dance', '2024-01-17 08:00:00', 25),
+('CL004', 'Spin', 'ST004', 30, 'Cardio', '2024-01-18 07:30:00', 18),
+('CL005', 'CrossFit', 'ST005', 75, 'Strength', '2024-01-19 06:30:00', 10);
+
+-- Insert data into Staff table
+INSERT INTO Staff VALUES
+('ST001', 'Emma', 'Thompson', 'emma.thompson@example.com', 1112223334, '1990-01-20', 'CL001'),
+('ST002', 'James', 'Carter', 'james.carter@example.com', 5556667778, '1987-04-15', 'CL002'),
+('ST003', 'Sophia', 'Johnson', 'sophia.johnson@example.com', 8889990001, '1995-03-12', 'CL003'),
+('ST004', 'William', 'Brown', 'william.brown@example.com', 4445556667, '1992-08-05', 'CL004'),
+('ST005', 'Olivia', 'Davis', 'olivia.davis@example.com', 9990001112, '1991-07-10', 'CL005');
+
+-- Insert data into Enrollment table
+INSERT INTO Enrollment VALUES
+('EN001', 'ME001', 'CL001', '2023-12-01'),
+('EN002', 'ME002', 'CL002', '2023-12-02'),
+('EN003', 'ME003', 'CL003', '2023-12-03'),
+('EN004', 'ME004', 'CL004', '2023-12-04'),
+('EN005', 'ME005', 'CL005', '2023-12-05');
+
+-- Insert data into StaffSchedule table
+INSERT INTO StaffSchedule VALUES
+('SC001', 'ST001', '2024-01-01', '08:00:00', '12:00:00', 'Available'),
+('SC002', 'ST002', '2024-01-02', '09:00:00', '13:00:00', 'Available'),
+('SC003', 'ST003', '2024-01-03', '10:00:00', '14:00:00', 'Available'),
+('SC004', 'ST004', '2024-01-04', '07:00:00', '11:00:00', 'Available'),
+('SC005', 'ST005', '2024-01-05', '06:00:00', '10:00:00', 'Available');
+
+-- Insert data into Equipment table
+INSERT INTO Equipment VALUES
+('EQ001', 'Treadmill', 'BrandX', 'ModelA', 'Cardio', 'Good', 'CL001'),
+('EQ002', 'Dumbbells', 'BrandY', 'ModelB', 'Strength', 'Excellent', 'CL002'),
+('EQ003', 'Rowing Machine', 'BrandZ', 'ModelC', 'Cardio', 'Good', 'CL003'),
+('EQ004', 'Kettlebell', 'BrandW', 'ModelD', 'Strength', 'Good', 'CL004'),
+('EQ005', 'Exercise Bike', 'BrandV', 'ModelE', 'Cardio', 'Fair', 'CL005');
+
+-- Insert data into Booking table
+INSERT INTO Booking VALUES
+('BK001', 'ME001', 'CL001', 'ST001', '2023-12-10', '10:00:00', 'Confirmed'),
+('BK002', 'ME002', 'CL002', 'ST002', '2023-12-11', '11:00:00', 'Confirmed'),
+('BK003', 'ME003', 'CL003', 'ST003', '2023-12-12', '09:30:00', 'Pending'),
+('BK004', 'ME004', 'CL004', 'ST004', '2023-12-13', '08:45:00', 'Confirmed'),
+('BK005', 'ME005', 'CL005', 'ST005', '2023-12-14', '07:15:00', 'Cancelled');
+
+
+-- 2. DELETE
+DELETE FROM Members
+WHERE MemberID = 'ME001';
+
+-- 3. UPDATE
+UPDATE Equipment
+SET 
+    Name = 'New Treadmill Pro',
+    Brand = 'FitnessCo',
+    Model = 'TR-900X',
+    Type = 'Cardio',
+    Conditions = 'Good'
+WHERE Equipment_ID = 'EQ001';
+
+
+-- 4. SELECT
+SELECT * FROM Equipment WHERE Equipment_ID = 'EQ001';
+
+-- 5. TRUNCATE
+TRUNCATE TABLE Equipment;
+SELECT * FROM Equipment;
